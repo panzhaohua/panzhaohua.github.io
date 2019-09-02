@@ -5,19 +5,20 @@
   
 
   
-  <title>潘昭华的技术博客</title>
+  <title>scrapy中path使用小计 | 潘昭华的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IT">
+  <meta name="description" content="scrapy中使用xpathscrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpa">
 <meta name="keywords" content="IT">
-<meta property="og:type" content="website">
-<meta property="og:title" content="潘昭华的技术博客">
-<meta property="og:url" content="https://panzhaohua.github.io/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy中path使用小计">
+<meta property="og:url" content="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/index.html">
 <meta property="og:site_name" content="潘昭华的技术博客">
-<meta property="og:description" content="IT">
+<meta property="og:description" content="scrapy中使用xpathscrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpa">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-02T08:58:31.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="潘昭华的技术博客">
-<meta name="twitter:description" content="IT">
+<meta name="twitter:title" content="scrapy中path使用小计">
+<meta name="twitter:description" content="scrapy中使用xpathscrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpa">
   
     <link rel="alternate" href="/atom.xml" title="潘昭华的技术博客" type="application/atom+xml">
   
@@ -68,58 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/02/hello-world/" class="article-date">
-  <time datetime="2019-09-02T07:51:06.910Z" itemprop="datePublished">2019-09-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://panzhaohua.github.io/2019/09/02/hello-world/" data-id="ck0269zmv00016vt1p628cgvj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-scrapy中xpath使用小计" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-scrapy中xpath使用小计" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/02/scrapy中xpath使用小计/" class="article-date">
   <time datetime="2019-09-01T16:00:00.000Z" itemprop="datePublished">2019-09-02</time>
@@ -136,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/scrapy中xpath使用小计/">scrapy中path使用小计</a>
+    <h1 class="article-title" itemprop="name">
+      scrapy中path使用小计
     </h1>
   
 
@@ -171,11 +121,23 @@
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/02/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
-
+</article>
 
 </section>
         
