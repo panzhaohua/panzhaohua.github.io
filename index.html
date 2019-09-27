@@ -70,6 +70,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-github学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/27/github学习一/" class="article-date">
+  <time datetime="2019-09-27T08:57:14.000Z" itemprop="datePublished">2019-09-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/27/github学习一/">github学习一</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习的几个github库</p>
+<ol>
+<li><a href="https://github.com/daacheng/PythonBasic" target="_blank" rel="noopener">daacheng/PythonBasic/</a></li>
+</ol>
+<p>http的所有基本请求方法网站： <a href="http://httpbin.org" target="_blank" rel="noopener">http://httpbin.org</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r = requests.get(url, headers=heasers,cookies=cookies, timeout=0.001,proxies=proxies)</span><br></pre></td></tr></table></figure>
+
+<h4 id="css选择器-soup-seclect"><a href="#css选择器-soup-seclect" class="headerlink" title="css选择器(soup.seclect())"></a>css选择器(soup.seclect())</h4><ol>
+<li>通过标签名soup.select(‘title’)</li>
+<li>通过类名查找 soup.select(‘.sister’)</li>
+<li>通过id名查找soup.select(‘#link1’)</li>
+<li>组合查找 soup.select(‘p #link1’)</li>
+<li>属性查找 soup.select(‘a[href=”<a href="http://examle.com/elsie&quot;]&#39;" target="_blank" rel="noopener">http://examle.com/elsie&quot;]&#39;</a>)<h4 id="xpath解析"><a href="#xpath解析" class="headerlink" title="xpath解析"></a>xpath解析</h4>F12  右键copy xpath</li>
+</ol>
+<hr>
+<p>selenium模拟鼠标操作</p>
+<p>目前scarpy除了下载图片，还没发现其他用处</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://panzhaohua.github.io/2019/09/27/github学习一/" data-id="ck11w8o3b00001ct1t9uyffhb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/02/hello-world/" class="article-date">
@@ -109,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://panzhaohua.github.io/2019/09/02/hello-world/" data-id="ck0269zmv00016vt1p628cgvj" class="article-share-link">Share</a>
+      <a data-url="https://panzhaohua.github.io/2019/09/02/hello-world/" data-id="ck11w8o3r00011ct1aojhl3d8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +190,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/scrapy中xpath使用小计/">scrapy中path使用小计</a>
+      <a class="article-title" href="/2019/09/02/scrapy中xpath使用小计/">scrapy中xpath使用小计</a>
     </h1>
   
 
@@ -145,7 +198,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="scrapy中使用xpath"><a href="#scrapy中使用xpath" class="headerlink" title="scrapy中使用xpath"></a>scrapy中使用xpath</h1><p>scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容</p>
+        <p>scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title = response.xpath(&quot;/html/head/title/text()&quot;).extract()</span><br><span class="line">    note = response.xpath(&quot;//div[@class=&apos;note&apos;]/text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
 
 <ol>
@@ -165,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/" data-id="ck0269zmi00006vt12j0xwfp9" class="article-share-link">Share</a>
+      <a data-url="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/" data-id="ck11w8o4h00021ct1one32yr0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,11 +266,15 @@
       <ul>
         
           <li>
+            <a href="/2019/09/27/github学习一/">github学习一</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/02/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2019/09/02/scrapy中xpath使用小计/">scrapy中path使用小计</a>
+            <a href="/2019/09/02/scrapy中xpath使用小计/">scrapy中xpath使用小计</a>
           </li>
         
       </ul>
