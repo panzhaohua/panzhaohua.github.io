@@ -39,7 +39,8 @@ svnadmin create P800_IpvodUpdate
 6. 导入
 
 ```
-svnadmin load P800_IpvodUpdate <42.tmp 
+svnadmin load P800_IpvodUpdate <42.tmp
+cp /tmp/svnserve.conf   P800_IpvodUpdate/conf/
 ```
 7. 检查是否成功
 
