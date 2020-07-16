@@ -170,6 +170,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/07/16/vsftp及glusterd安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="潘昭华">
+      <meta itemprop="description" content="IT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="潘昭华的技术博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/16/vsftp及glusterd安装/" class="post-title-link" itemprop="url">vsftp及glusterd安装</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-16 10:34:40 / 修改时间：10:40:52" itemprop="dateCreated datePublished" datetime="2020-07-16T10:34:40+08:00">2020-07-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常运维/" itemprop="url" rel="index">
+                    <span itemprop="name">日常运维</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="api-01-02-03-安装-java8、ffmpeg、tomcat8"><a href="#api-01-02-03-安装-java8、ffmpeg、tomcat8" class="headerlink" title="api 01 02 03 安装 java8、ffmpeg、tomcat8"></a>api 01 02 03 安装 java8、ffmpeg、tomcat8</h5><p>删除多余源，关掉用不上的软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/salt-cmfj.repo /tmp  #清除多余的salt文件</span><br><span class="line"></span><br><span class="line">systemctl disable salt-minion.service</span><br><span class="line">systemctl stop salt-minion.service    #关掉salt-minion</span><br><span class="line"></span><br><span class="line">sed -i &apos;s/aliyuncs/aliyun/g&apos; /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+
+<p>添加命令执行历史时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HISTTIMEFORMAT=&quot;%F %T &quot;&apos; &gt; /etc/profile.d/ubox.sh</span><br></pre></td></tr></table></figure>
+
+<p>yum search tomcat8 搜索不到，只能下载安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk</span><br></pre></td></tr></table></figure>
+
+<p>参考文档    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://help.aliyun.com/document_detail/51376.html?spm=a2c4g.11186623.6.1152.78cb2a46RcEJyU</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">useradd www  </span><br><span class="line">wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz</span><br><span class="line">tar xzf apache-tomcat-8.5.57.tar.gz</span><br><span class="line">mv apache-tomcat-8.5.57 /usr/local/tomcat/</span><br><span class="line">chown -R www.www /usr/local/tomcat/</span><br><span class="line"></span><br><span class="line">wget  --no-check-certificate &apos;https://raw.githubusercontent.com/oneinstack/oneinstack/master/init.d/Tomcat-init&apos; 也不行，手动上传，然后继续执行</span><br><span class="line"></span><br><span class="line">mv Tomcat-init /etc/init.d/tomcat</span><br><span class="line">chmod +x /etc/init.d/tomcat</span><br><span class="line"></span><br><span class="line">chkconfig --add tomcat</span><br><span class="line">chkconfig tomcat on</span><br><span class="line">service tomcat start</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装rpmfusion</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum  -y localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装ffpmep和开发头</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ffmpeg ffmpeg-devel -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装vsftpd</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd -y</span><br><span class="line">systemctl enable vsftpd</span><br></pre></td></tr></table></figure>
+
+<p>#然后编辑配置文件,配置被动ftp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sed -i &quot;s/anonymous_enable=YES/anonymous_enable=NO/g&quot;  /etc/vsftpd/vsftpd.conf</span><br><span class="line">sed -i &quot;s/listen=NO/listen=YES/g&quot;  /etc/vsftpd/vsftpd.conf</span><br><span class="line">sed -i &quot;s/listen_ipv6=YES/listen_ipv6=NO/g&quot;  /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">pasv_enable=YES</span><br><span class="line">pasv_min_port=8085</span><br><span class="line">pasv_max_port=8089</span><br><span class="line"></span><br><span class="line">sed -i &apos;$apasv_enable=YES\npasv_min_port=8085\npasv_max_port=8089&apos;  /etc/vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">systemctl restart  vsftpd</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp:*****@*.*.*.*:21/pub/mm.mp3</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装gluster</strong> <a href="https://www.cnblogs.com/saneri/p/12378121.html" target="_blank" rel="noopener">https://www.cnblogs.com/saneri/p/12378121.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install centos-release-gluster</span><br><span class="line">yum -y install glusterfs glusterfs-server glusterfs-fuse</span><br></pre></td></tr></table></figure>
+
+<p>设置主机名，并加入Hosts </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname record01</span><br><span class="line">vim /etc/hosts</span><br><span class="line">1 record01</span><br><span class="line">1 record02</span><br><span class="line">1  record03</span><br><span class="line">或者</span><br><span class="line">echo &apos;1.1.1.1  record01&apos; &gt;&gt; /etc/hosts</span><br><span class="line">echo &apos;1  record02&apos; &gt;&gt; /etc/hosts</span><br><span class="line">echo &apos;1 record03&apos; &gt;&gt; /etc/hosts</span><br><span class="line">或者</span><br><span class="line">sed -i &apos;$a 1  record01\n1  record02\n1  record03&apos; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start glusterd</span><br><span class="line">systemctl enable glusterd</span><br><span class="line">systemctl status glusterd</span><br></pre></td></tr></table></figure>
+
+<p>增加节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gluster peer probe record01</span><br><span class="line">gluster peer probe record02</span><br><span class="line">gluster peer probe record03</span><br><span class="line">gluster peer status</span><br></pre></td></tr></table></figure>
+
+<p>创建挂载目录，然后创建文件；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/record</span><br><span class="line">gluster volume create record  record01:/data/record record02:/data/record record03:/data/record</span><br></pre></td></tr></table></figure>
+
+<p>查看volume状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gluster volume list</span><br><span class="line">gluster volume start record</span><br><span class="line">gluster volume info record</span><br><span class="line">gluster volume status</span><br></pre></td></tr></table></figure>
+
+<p>客户端操作<br>设置主机名，并加入Hosts </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line">1.1.1.1  record01</span><br><span class="line">1.1.1.1  record02</span><br><span class="line">1.1.1.1  record03</span><br><span class="line"></span><br><span class="line">yum -y install centos-release-gluster</span><br><span class="line">yum -y install glusterfs-fuse</span><br><span class="line"></span><br><span class="line">vim /etc/fstab</span><br><span class="line">record01,record02,record03:/record /data/record  glusterfs defaults,_netdev 0 0</span><br><span class="line">或者</span><br><span class="line">echo &apos;record01,record02,record03:/record /data/record  glusterfs defaults,_netdev 0 0&apos; &gt;&gt; /etc/fstab</span><br><span class="line"></span><br><span class="line">mkdir -p /data/record </span><br><span class="line">mount -a</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>PS:<br>ip地址替换为1或者*</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/07/14/minikube-k8s-安装指引/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1277,102 +1398,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/15/deliveryRobot的supervisor配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="潘昭华">
-      <meta itemprop="description" content="IT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="潘昭华的技术博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/15/deliveryRobot的supervisor配置/" class="post-title-link" itemprop="url">deliveryRobot的supervisor配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-15 13:05:45" itemprop="dateCreated datePublished" datetime="2019-10-15T13:05:45+08:00">2019-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-14 11:22:02" itemprop="dateModified" datetime="2020-07-14T11:22:02+08:00">2020-07-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/supervisor基础/" itemprop="url" rel="index">
-                    <span itemprop="name">supervisor基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="deliveryRobot的supervisor配置"><a href="#deliveryRobot的supervisor配置" class="headerlink" title="deliveryRobot的supervisor配置"></a>deliveryRobot的supervisor配置</h1><p>因deliveryRobot 需要新加一个计划任务，用于队列监听，所以开始了这次测试之旅。</p>
-<ul>
-<li>配置supervisor</li>
-</ul>
-<p>vim /etc/supervisord.d/deliveryRobot-listen.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[program:deliveryRobot-listen]</span><br><span class="line">command=php /ubox/apps/deliveryRobot/artisan queue:listen  redis   --delay=3 --sleep=3 --tries=12            ; the program (relative uses PATH, can take args)</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d  ;</span><br><span class="line">numprocs=5</span><br><span class="line">priority=999                ; the relative start priority (default 999)</span><br><span class="line">autostart=true              ; start at supervisord start (default: true)</span><br><span class="line">autorestart=true            ; retstart at unexpected quit (default: true)</span><br><span class="line">startsecs=10                ; number of secs prog must stay running (def. 10)</span><br><span class="line">startretries=3  </span><br><span class="line">user=www  </span><br><span class="line">redirect_stderr=true</span><br><span class="line">stdout_logfile=none</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>去除supervisor日志</li>
-</ul>
-<p>因为我php设置问题，默认会有错误提示，导致supervisor日志很大，需要研究去掉日志。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redirect_stderr=true</span><br><span class="line">stdout_logfile=none</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重新加载配置文件</li>
-</ul>
-<p>当成功创建配置文件后，需要刷新 Supervisor 的配置信息并使用如下命令启动进程:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl reread</span><br><span class="line">sudo supervisorctl update</span><br><span class="line">sudo supervisorctl start laravel-worker:*</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>PS：可以参考文档<br><a href="https://xueyuanjun.com/post/19516.html" target="_blank" rel="noopener">https://xueyuanjun.com/post/19516.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1443,12 +1468,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
