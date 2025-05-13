@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -46,20 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="gradle打包jar速度确实比maven快，而且还有可以单独打包里面一个jar，不必先上传父依赖，而会自动生成的特点，确实方便很多。但用在jenkins打包过程中，我发现它有一个缺点，插件里面无法导出环境变量，毕竟没有pipeline；用老式的拼装式job感觉比pipeline方便很多-我不喜欢写代码。折腾了好久， exposes出的环境变量，在最后的salt插件==Send a message">
-<meta name="keywords" content="maven">
+  <meta name="description" content="gradle打包jar速度确实比maven快，而且还有可以单独打包里面一个jar，不必先上传父依赖，而会自动生成的特点，确实方便很多。但用在jenkins打包过程中，我发现它有一个缺点，插件里面无法导出环境变量，毕竟没有pipeline；用老式的拼装式job感觉比pipeline方便很多-我不喜欢写代码。折腾了好久， exposes出的环境变量，在最后的salt插件&#x3D;&#x3D;Send a message">
 <meta property="og:type" content="article">
 <meta property="og:title" content="maven转gradle小记">
-<meta property="og:url" content="https://panzhaohua.github.io/2025/05/13/maven转gradle小记/index.html">
+<meta property="og:url" content="https://panzhaohua.github.io/2025/05/13/maven%E8%BD%ACgradle%E5%B0%8F%E8%AE%B0/index.html">
 <meta property="og:site_name" content="潘昭华的技术博客">
-<meta property="og:description" content="gradle打包jar速度确实比maven快，而且还有可以单独打包里面一个jar，不必先上传父依赖，而会自动生成的特点，确实方便很多。但用在jenkins打包过程中，我发现它有一个缺点，插件里面无法导出环境变量，毕竟没有pipeline；用老式的拼装式job感觉比pipeline方便很多-我不喜欢写代码。折腾了好久， exposes出的环境变量，在最后的salt插件==Send a message">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2025-05-13T06:49:40.281Z">
+<meta property="og:description" content="gradle打包jar速度确实比maven快，而且还有可以单独打包里面一个jar，不必先上传父依赖，而会自动生成的特点，确实方便很多。但用在jenkins打包过程中，我发现它有一个缺点，插件里面无法导出环境变量，毕竟没有pipeline；用老式的拼装式job感觉比pipeline方便很多-我不喜欢写代码。折腾了好久， exposes出的环境变量，在最后的salt插件&#x3D;&#x3D;Send a message">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-13T06:44:30.000Z">
+<meta property="article:modified_time" content="2025-05-13T06:49:40.281Z">
+<meta property="article:author" content="潘昭华">
+<meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven转gradle小记">
-<meta name="twitter:description" content="gradle打包jar速度确实比maven快，而且还有可以单独打包里面一个jar，不必先上传父依赖，而会自动生成的特点，确实方便很多。但用在jenkins打包过程中，我发现它有一个缺点，插件里面无法导出环境变量，毕竟没有pipeline；用老式的拼装式job感觉比pipeline方便很多-我不喜欢写代码。折腾了好久， exposes出的环境变量，在最后的salt插件==Send a message">
 
-<link rel="canonical" href="https://panzhaohua.github.io/2025/05/13/maven转gradle小记/">
+<link rel="canonical" href="https://panzhaohua.github.io/2025/05/13/maven%E8%BD%ACgradle%E5%B0%8F%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2025/05/13/maven转gradle小记/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2025/05/13/maven%E8%BD%ACgradle%E5%B0%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -203,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/备案/" itemprop="url" rel="index">
+                  <a href="/categories/%E5%A4%87%E6%A1%88/" itemprop="url" rel="index">
                     <span itemprop="name">备案</span>
                   </a>
                 </span>
@@ -246,7 +246,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/05/13/thinkphp尝试了解-user-ini/" rel="prev" title="thinkphp尝试了解.user.ini">
+    <a href="/2025/05/13/thinkphp%E5%B0%9D%E8%AF%95%E4%BA%86%E8%A7%A3-user-ini/" rel="prev" title="thinkphp尝试了解.user.ini">
       <i class="fa fa-chevron-left"></i> thinkphp尝试了解.user.ini
     </a></div>
       <div class="post-nav-item"></div>
@@ -362,7 +362,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">潘昭华</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
@@ -385,9 +385,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

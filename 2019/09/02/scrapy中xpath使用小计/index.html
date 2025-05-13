@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -46,20 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpath(&amp;quot;//div">
-<meta name="keywords" content="IT">
+  <meta name="description" content="scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class&#x3D;’note’的div标签下的内容 12345def next(self,response):    title &#x3D; response.xpath(&quot;&#x2F;html&#x2F;head&#x2F;title&#x2F;text()&quot;).extract()    note &amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scrapy中xpath使用小计">
-<meta property="og:url" content="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/index.html">
+<meta property="og:url" content="https://panzhaohua.github.io/2019/09/02/scrapy%E4%B8%ADxpath%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%A1/index.html">
 <meta property="og:site_name" content="潘昭华的技术博客">
-<meta property="og:description" content="scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpath(&amp;quot;//div">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2025-05-13T08:37:33.555Z">
+<meta property="og:description" content="scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class&#x3D;’note’的div标签下的内容 12345def next(self,response):    title &#x3D; response.xpath(&quot;&#x2F;html&#x2F;head&#x2F;title&#x2F;text()&quot;).extract()    note &amp;#x">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-13T08:37:33.555Z">
+<meta property="article:author" content="潘昭华">
+<meta property="article:tag" content="IT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="scrapy中xpath使用小计">
-<meta name="twitter:description" content="scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容 12345def next(self,response):    title = response.xpath(&amp;quot;/html/head/title/text()&amp;quot;).extract()    note = response.xpath(&amp;quot;//div">
 
-<link rel="canonical" href="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/">
+<link rel="canonical" href="https://panzhaohua.github.io/2019/09/02/scrapy%E4%B8%ADxpath%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%A1/">
 
 
 <script id="page-configurations">
@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/02/scrapy%E4%B8%ADxpath%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Python基础</span>
                   </a>
                 </span>
@@ -227,20 +227,21 @@
 
       
         <p>scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title = response.xpath(&quot;/html/head/title/text()&quot;).extract()</span><br><span class="line">    note = response.xpath(&quot;//div[@class=&apos;note&apos;]/text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title &#x3D; response.xpath(&quot;&#x2F;html&#x2F;head&#x2F;title&#x2F;text()&quot;).extract()</span><br><span class="line">    note &#x3D; response.xpath(&quot;&#x2F;&#x2F;div[@class&#x3D;&#39;note&#39;]&#x2F;text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
 <ol>
 <li>xpath是什么</li>
 </ol>
 <p>Xpath是一门在XML文档中查找信息的语言，可以对XML文档中的元素和属性使用路径表达式进行导航，Xpath包含一个标准函数库。</p>
 <ol start="2">
-<li><p>xpath常用标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/ ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　// ---------- 寻找所有的标签</span><br><span class="line">　　[@属性=值] ------ 定位标签</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用举例</p>
-</li>
+<li>xpath常用标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F; ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　&#x2F;&#x2F; ---------- 寻找所有的标签</span><br><span class="line">　　[@属性&#x3D;值] ------ 定位标签</span><br></pre></td></tr></table></figure></li>
+<li>使用举例</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/html -----代表提取html标签内的所有内容</span><br><span class="line">　　/html/head/title -----代表提取title下面的所有信息</span><br><span class="line">　　//li ------ 代表提取所有的li标签</span><br><span class="line">　　//li[@class=&apos;hidden-xs&apos;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　//li[@class=&apos;hidden-xs&apos;]/a/@heef ---------- 提取到class = hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F;html -----代表提取html标签内的所有内容</span><br><span class="line">　　&#x2F;html&#x2F;head&#x2F;title -----代表提取title下面的所有信息</span><br><span class="line">　　&#x2F;&#x2F;li ------ 代表提取所有的li标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;]&#x2F;a&#x2F;@heef ---------- 提取到class &#x3D; hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
 
     </div>
@@ -261,7 +262,7 @@
       <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/09/27/github学习一/" rel="next" title="github学习一">
+    <a href="/2019/09/27/github%E5%AD%A6%E4%B9%A0%E4%B8%80/" rel="next" title="github学习一">
       github学习一 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -376,7 +377,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">潘昭华</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
@@ -399,9 +400,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 

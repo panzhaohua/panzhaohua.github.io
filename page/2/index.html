@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -47,16 +47,15 @@
 </script>
 
   <meta name="description" content="IT">
-<meta name="keywords" content="IT">
 <meta property="og:type" content="website">
 <meta property="og:title" content="潘昭华的技术博客">
 <meta property="og:url" content="https://panzhaohua.github.io/page/2/index.html">
 <meta property="og:site_name" content="潘昭华的技术博客">
 <meta property="og:description" content="IT">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="潘昭华">
+<meta property="article:tag" content="IT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="潘昭华的技术博客">
-<meta name="twitter:description" content="IT">
 
 <link rel="canonical" href="https://panzhaohua.github.io/page/2/">
 
@@ -170,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/01/03/pyecharts入门三数据转换counter/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/01/03/pyecharts%E5%85%A5%E9%97%A8%E4%B8%89%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2counter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -184,7 +183,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/03/pyecharts入门三数据转换counter/" class="post-title-link" itemprop="url">pyecharts入门三数据转换counter</a>
+            <a href="/2020/01/03/pyecharts%E5%85%A5%E9%97%A8%E4%B8%89%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2counter/" class="post-title-link" itemprop="url">pyecharts入门三数据转换counter</a>
         </h1>
 
         <div class="post-meta">
@@ -209,7 +208,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Python基础</span>
                   </a>
                 </span>
@@ -228,19 +227,34 @@
       
           <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar,Map</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'v20191216全量机器mac码  .xlsx'</span>)</span><br><span class="line"><span class="comment">#df = df.head(10)</span></span><br></pre></td></tr></table></figure>
+
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
+
+
+
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(df[<span class="string">"省份"</span>])</span><br></pre></td></tr></table></figure>
+
+
+
 
 <pre><code>pandas.core.series.Series</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sf_list=df[<span class="string">"省份"</span>].tolist()</span><br><span class="line"><span class="comment">#sf_list</span></span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sf_counter = Counter(sf_list)  </span><br><span class="line"><span class="comment">#统计list出现的频率</span></span><br><span class="line"><span class="comment">#sf_counter</span></span><br></pre></td></tr></table></figure>
+
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#list(sf_counter.keys,sf_couner.items)</span></span><br><span class="line"><span class="comment">#sf_counter.keys()</span></span><br><span class="line"><span class="comment">#sf_counter = sf_counter.items()   #使用items符合格式要求</span></span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sf_xlist = list(sf_counter.keys())</span><br><span class="line">sf_ylist = list(sf_counter.values())</span><br><span class="line"><span class="comment">#sf_xlist</span></span><br></pre></td></tr></table></figure>
+
+
+
 
 <pre><code>[&apos;重庆市&apos;,
  &apos;陕西省&apos;,
@@ -297,7 +311,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/01/02/pyecharts入门二地理图表/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/01/02/pyecharts%E5%85%A5%E9%97%A8%E4%BA%8C%E5%9C%B0%E7%90%86%E5%9B%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -311,7 +325,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/02/pyecharts入门二地理图表/" class="post-title-link" itemprop="url">pyecharts入门二地理图表</a>
+            <a href="/2020/01/02/pyecharts%E5%85%A5%E9%97%A8%E4%BA%8C%E5%9C%B0%E7%90%86%E5%9B%BE%E8%A1%A8/" class="post-title-link" itemprop="url">pyecharts入门二地理图表</a>
         </h1>
 
         <div class="post-meta">
@@ -336,7 +350,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Python基础</span>
                   </a>
                 </span>
@@ -356,7 +370,11 @@
           <p>pyecharts入门二地理图表</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar,Map</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#导入模块</span></span><br><span class="line">df = pd.read_excel(<span class="string">'v20191216全量机器mac码  .xlsx'</span>)</span><br><span class="line">df = df.head(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#导入数据</span></span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.keys()</span><br></pre></td></tr></table></figure>
+
+
+
 
 <pre><code>Index([&apos;省份&apos;, &apos;城市&apos;, &apos;大区&apos;, &apos;商家&apos;, &apos;门店编号&apos;, &apos;门店&apos;, &apos;包厢&apos;, &apos;营业状态&apos;, &apos;状态维持时间&apos;, &apos;未联网原因&apos;,
        &apos;机器码&apos;, &apos;设备属性&apos;, &apos;版本号&apos;, &apos;上线日期&apos;, &apos;硬件状态&apos;, &apos;断网次数&apos;, &apos;网络环境&apos;, &apos;网络运营商&apos;, &apos;4G卡号&apos;,
@@ -365,18 +383,36 @@
        &apos;制冷设备&apos;],
       dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数值连续型</span></span><br><span class="line">c = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">"全国分布"</span>,[(<span class="string">'湖南'</span>,<span class="string">'23'</span>),(<span class="string">'湖北'</span>, <span class="string">'210'</span>)],</span><br><span class="line">         <span class="string">"china"</span>)</span><br><span class="line">    <span class="comment">#.set_series_opts(label_opts=opts.LabelOpts(is_show=False))  #不显示省份标签</span></span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"商家分布"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>)          </span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
+
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数值分段型</span></span><br><span class="line">c = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">"全国分布"</span>,[(<span class="string">'湖南'</span>,<span class="string">'23'</span>),(<span class="string">'湖北'</span>, <span class="string">'190'</span>)],</span><br><span class="line">         <span class="string">"china"</span>)</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>))</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"商家分布"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)          </span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#世界地图</span></span><br><span class="line">c = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">"世界分布"</span>,[(<span class="string">'China'</span>,<span class="string">'23'</span>),(<span class="string">'United States'</span>, <span class="string">'190'</span>)],</span><br><span class="line">         <span class="string">"world"</span>)</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>))</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"商家分布"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)          </span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
+
+
+
+
+
+
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#湖南地图</span></span><br><span class="line">c = (</span><br><span class="line">    Map()</span><br><span class="line">    .add(<span class="string">"湖南省分布"</span>,[(<span class="string">'长沙市'</span>,<span class="string">'23'</span>),(<span class="string">'湘潭市'</span>, <span class="string">'190'</span>),(<span class="string">'株洲市'</span>, <span class="string">'110'</span>)],</span><br><span class="line">         <span class="string">"湖南"</span>)</span><br><span class="line">    .set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>))</span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"商家分布"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)          </span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
+
+
+
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Geo</span><br><span class="line"><span class="keyword">from</span> pyecharts.globals <span class="keyword">import</span> ChartType, SymbolType</span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#地理坐标热力地图</span></span><br><span class="line">c = (</span><br><span class="line">    Geo()</span><br><span class="line">    .add_schema(maptype=<span class="string">"湖南"</span>)</span><br><span class="line">    .add(</span><br><span class="line">        <span class="string">"geo"</span>,</span><br><span class="line">        [(<span class="string">'常德市'</span>,<span class="string">'123'</span>),(<span class="string">'邵阳市'</span>, <span class="string">'190'</span>),(<span class="string">'永洲市'</span>, <span class="string">'141'</span>)],</span><br><span class="line">        <span class="comment">#type_=ChartType.EFFECT_SCATTER,  #散点图   </span></span><br><span class="line">        type_=ChartType.HEATMAP,         <span class="comment">#热力图   </span></span><br><span class="line">        )</span><br><span class="line">    <span class="comment">#.set_series_opts(label_opts=opts.LabelOpts(is_show=False))</span></span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"热力图分布"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)  <span class="comment">#分段</span></span><br><span class="line">        <span class="comment">#visualmap_opts=opts.VisualMapOpts()   </span></span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#地理坐标线</span></span><br><span class="line">c = (</span><br><span class="line">    Geo()</span><br><span class="line">    .add_schema(</span><br><span class="line">        maptype=<span class="string">"湖南"</span>,  <span class="comment">#选择区域</span></span><br><span class="line">        itemstyle_opts=opts.ItemStyleOpts(color=<span class="string">"#ffffff"</span>, border_color=<span class="string">"#ff0000"</span>),  <span class="comment">#底部颜色</span></span><br><span class="line">    )</span><br><span class="line">    .add(</span><br><span class="line">        <span class="string">"geo"</span>,</span><br><span class="line">        [(<span class="string">'常德市'</span>,<span class="string">'123'</span>),(<span class="string">'邵阳市'</span>, <span class="string">'190'</span>), (<span class="string">'永洲市'</span>, <span class="string">'199'</span>),(<span class="string">'长沙市'</span>, <span class="string">'36'</span>)],</span><br><span class="line">        type_=ChartType.EFFECT_SCATTER,  <span class="comment">#散点图   </span></span><br><span class="line">        <span class="comment">#type_=ChartType.HEATMAP,         #热力图   </span></span><br><span class="line">        color=<span class="string">"green"</span>,</span><br><span class="line">        )</span><br><span class="line">    .add(</span><br><span class="line">        <span class="string">"geo"</span>,</span><br><span class="line">        [(<span class="string">"常德市"</span>, <span class="string">"邵阳市"</span>), (<span class="string">"邵阳市"</span>, <span class="string">"长沙市"</span>), (<span class="string">"长沙市"</span>, <span class="string">"郴州市"</span>), (<span class="string">"长沙市"</span>, <span class="string">"永州市"</span>)],</span><br><span class="line">            type_=ChartType.LINES,</span><br><span class="line">            effect_opts=opts.EffectOpts(</span><br><span class="line">                symbol=SymbolType.ARROW, symbol_size=<span class="number">15</span>, color=<span class="string">"blue"</span></span><br><span class="line">            ),</span><br><span class="line">            linestyle_opts=opts.LineStyleOpts(curve=<span class="number">0.6</span>),</span><br><span class="line">        )</span><br><span class="line">    <span class="comment">#.set_series_opts(label_opts=opts.LabelOpts(is_show=False))</span></span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"地理坐标线"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)  <span class="comment">#分段</span></span><br><span class="line">        <span class="comment">#visualmap_opts=opts.VisualMapOpts()   </span></span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#地理坐标线</span></span><br><span class="line">c = (</span><br><span class="line">    Geo()</span><br><span class="line">    .add_schema(</span><br><span class="line">        maptype=<span class="string">"湖南"</span>,  <span class="comment">#选择区域</span></span><br><span class="line">        itemstyle_opts=opts.ItemStyleOpts(color=<span class="string">"#ffffff"</span>, border_color=<span class="string">"#ff0000"</span>),  <span class="comment">#底部颜色</span></span><br><span class="line">    )</span><br><span class="line">    .add(</span><br><span class="line">        <span class="string">"geo"</span>,</span><br><span class="line">        [(<span class="string">'常德市'</span>,<span class="string">'123'</span>),(<span class="string">'邵阳市'</span>, <span class="string">'190'</span>), (<span class="string">'永洲市'</span>, <span class="string">'199'</span>),(<span class="string">'长沙市'</span>, <span class="string">'36'</span>)],</span><br><span class="line">        type_=ChartType.EFFECT_SCATTER,  <span class="comment">#散点图   </span></span><br><span class="line">        <span class="comment">#type_=ChartType.HEATMAP,         #热力图   </span></span><br><span class="line">        color=<span class="string">"green"</span>,</span><br><span class="line">        )</span><br><span class="line">    .add(</span><br><span class="line">        <span class="string">"geo"</span>,</span><br><span class="line">        [(<span class="string">"常德市"</span>, <span class="string">"邵阳市"</span>), (<span class="string">"邵阳市"</span>, <span class="string">"长沙市"</span>), (<span class="string">"长沙市"</span>, <span class="string">"郴州市"</span>), (<span class="string">"长沙市"</span>, <span class="string">"永州市"</span>)],</span><br><span class="line">            type_=ChartType.LINES,</span><br><span class="line">            effect_opts=opts.EffectOpts(</span><br><span class="line">                symbol=SymbolType.ARROW, symbol_size=<span class="number">15</span>, color=<span class="string">"blue"</span></span><br><span class="line">            ),</span><br><span class="line">            linestyle_opts=opts.LineStyleOpts(curve=<span class="number">0.6</span>),</span><br><span class="line">        )</span><br><span class="line">    <span class="comment">#.set_series_opts(label_opts=opts.LabelOpts(is_show=False))</span></span><br><span class="line">    .set_global_opts(</span><br><span class="line">        title_opts=opts.TitleOpts(title=<span class="string">"地理坐标线"</span>),</span><br><span class="line">        visualmap_opts=opts.VisualMapOpts(max_=<span class="number">200</span>,is_piecewise=<span class="literal">True</span>)  <span class="comment">#分段</span></span><br><span class="line">        <span class="comment">#visualmap_opts=opts.VisualMapOpts()   </span></span><br><span class="line">                    )</span><br><span class="line">    )</span><br><span class="line">c.render_notebook()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -396,7 +432,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/12/31/pyecharts和pandas入门一/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/12/31/pyecharts%E5%92%8Cpandas%E5%85%A5%E9%97%A8%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -410,7 +446,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/31/pyecharts和pandas入门一/" class="post-title-link" itemprop="url">pyecharts和pandas入门一</a>
+            <a href="/2019/12/31/pyecharts%E5%92%8Cpandas%E5%85%A5%E9%97%A8%E4%B8%80/" class="post-title-link" itemprop="url">pyecharts和pandas入门一</a>
         </h1>
 
         <div class="post-meta">
@@ -435,7 +471,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Python基础</span>
                   </a>
                 </span>
@@ -455,9 +491,14 @@
           <p>pyecharts和pandas入门一</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#导入模块</span></span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'v20191216全量机器mac码  .xlsx'</span>)</span><br><span class="line">df = df.head(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#导入数据</span></span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.keys() <span class="comment">#查看keys</span></span><br></pre></td></tr></table></figure>
+
+
+
 
 <pre><code>Index([&apos;省份&apos;, &apos;城市&apos;, &apos;大区&apos;, &apos;商家&apos;, &apos;门店编号&apos;, &apos;门店&apos;, &apos;包厢&apos;, &apos;营业状态&apos;, &apos;状态维持时间&apos;, &apos;未联网原因&apos;,
        &apos;机器码&apos;, &apos;设备属性&apos;, &apos;版本号&apos;, &apos;上线日期&apos;, &apos;硬件状态&apos;, &apos;断网次数&apos;, &apos;网络环境&apos;, &apos;网络运营商&apos;, &apos;4G卡号&apos;,
@@ -466,8 +507,10 @@
        &apos;制冷设备&apos;],
       dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'断网次数'</span>].tolist()  <span class="comment">#查看可以打印出来的值</span></span><br></pre></td></tr></table></figure>
 
-<pre><code>[0, 0, 0, 0, 2, 2, 4, 0, 4, 6]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bar = (Bar()</span><br><span class="line">      .add_xaxis(df[<span class="string">'机器码'</span>].tolist())</span><br><span class="line">      .add_yaxis(<span class="string">'断网次数'</span>,df[<span class="string">'断网次数'</span>].tolist())</span><br><span class="line">     <span class="comment"># .add_yaxis('网络运营商',df['网络运营商'].tolist())</span></span><br><span class="line">     .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">"运营商"</span>, subtitle=<span class="string">"断网次数"</span>))</span><br><span class="line">      )</span><br><span class="line">bar.render_notebook()</span><br><span class="line"><span class="comment">#按照帮助文档提示，生成图像 http://pyecharts.org/#/zh-cn/quickstart</span></span><br></pre></td></tr></table></figure>
 
+
+
+<pre><code>[0, 0, 0, 0, 2, 2, 4, 0, 4, 6]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bar = (Bar()</span><br><span class="line">      .add_xaxis(df[<span class="string">'机器码'</span>].tolist())</span><br><span class="line">      .add_yaxis(<span class="string">'断网次数'</span>,df[<span class="string">'断网次数'</span>].tolist())</span><br><span class="line">     <span class="comment"># .add_yaxis('网络运营商',df['网络运营商'].tolist())</span></span><br><span class="line">     .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">"运营商"</span>, subtitle=<span class="string">"断网次数"</span>))</span><br><span class="line">      )</span><br><span class="line">bar.render_notebook()</span><br><span class="line"><span class="comment">#按照帮助文档提示，生成图像 http://pyecharts.org/#/zh-cn/quickstart</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -487,7 +530,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/11/07/centos6安装elasticsearch7-2、kibana7-2/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/11/07/centos6%E5%AE%89%E8%A3%85elasticsearch7-2%E3%80%81kibana7-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -501,7 +544,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/07/centos6安装elasticsearch7-2、kibana7-2/" class="post-title-link" itemprop="url">centos6安装elasticsearch7.2、kibana7.2</a>
+            <a href="/2019/11/07/centos6%E5%AE%89%E8%A3%85elasticsearch7-2%E3%80%81kibana7-2/" class="post-title-link" itemprop="url">centos6安装elasticsearch7.2、kibana7.2</a>
         </h1>
 
         <div class="post-meta">
@@ -542,30 +585,27 @@
 <li>yum安装完毕，复制分词器ik、pinyin对应的jar包到plugins文件夹后启动服务，设置自启动；</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum install elasticsearch-7.2.0-x86_64.rpm -y</span><br><span class="line">chkconfig elasticsearch on</span><br><span class="line">service elasticsearch start</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">yum install kibana-7.2.0-x86_64.rpm -y</span><br><span class="line">chkconfig kibana on</span><br><span class="line">service kibana  start</span><br></pre></td></tr></table></figure>
-
 <p>kibana启动失败，日志报错 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> FATAL  Error: /lib64/libc.so.6: version `GLIBC_2.14&apos; not found (required by /usr/share/kiba</span><br><span class="line">na/node_modules/@elastic/nodegit/build/Release/nodegit.node)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> FATAL  Error: &#x2F;lib64&#x2F;libc.so.6: version &#96;GLIBC_2.14&#39; not found (required by &#x2F;usr&#x2F;share&#x2F;kiba</span><br><span class="line">na&#x2F;node_modules&#x2F;@elastic&#x2F;nodegit&#x2F;build&#x2F;Release&#x2F;nodegit.node)</span><br></pre></td></tr></table></figure>
 <p>解决办法：<a href="https://github.com/elastic/kibana/issues/40388" target="_blank" rel="noopener">https://github.com/elastic/kibana/issues/40388</a><br>kibana只能127.0.0.1访问的问题<br>修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/kibana/kibana.yml </span><br><span class="line">#server.host: &quot;localhost&quot; 修改为 server.host: &quot;0.0.0.0&quot;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;kibana&#x2F;kibana.yml </span><br><span class="line">#server.host: &quot;localhost&quot; 修改为 server.host: &quot;0.0.0.0&quot;</span><br></pre></td></tr></table></figure>
 
 
 <p>启动kibana，配置nginx代理；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">upstream ktvplus_kibana &#123;</span><br><span class="line">    server 1.1.1.1:5601;</span><br><span class="line">    &#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name ktvplus_elk.x.cn;</span><br><span class="line">    ssl_certificate /etc/pki/tls/certs/xx/x.cn.crt;</span><br><span class="line">    ssl_certificate_key /etc/pki/tls/private/x/x.cn.key;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line"></span><br><span class="line">    # ACL</span><br><span class="line">    # HSTS</span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=63072000; includeSubdomains; preload&quot;;</span><br><span class="line">    location / &#123;</span><br><span class="line">        #auth_ldap &quot;LDAP Login&quot;;</span><br><span class="line">        #auth_ldap_servers ubox;</span><br><span class="line">        autoindex on;</span><br><span class="line">        #proxy_max_temp_file_size 0;</span><br><span class="line">        fastcgi_buffer_size 4k;</span><br><span class="line">        fastcgi_buffers 2048 512k;</span><br><span class="line"></span><br><span class="line">        proxy_pass http://ktvplus_kibana;</span><br><span class="line">        root html;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line"></span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    access_log /x/logs/ktvplus/elk_access.log ubox;</span><br><span class="line">    error_log /x/logs/ktvplus/elk_error.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">upstream ktvplus_kibana &#123;</span><br><span class="line">    server 1.1.1.1:5601;</span><br><span class="line">    &#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name ktvplus_elk.x.cn;</span><br><span class="line">    ssl_certificate &#x2F;etc&#x2F;pki&#x2F;tls&#x2F;certs&#x2F;xx&#x2F;x.cn.crt;</span><br><span class="line">    ssl_certificate_key &#x2F;etc&#x2F;pki&#x2F;tls&#x2F;private&#x2F;x&#x2F;x.cn.key;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line"></span><br><span class="line">    # ACL</span><br><span class="line">    # HSTS</span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age&#x3D;63072000; includeSubdomains; preload&quot;;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        #auth_ldap &quot;LDAP Login&quot;;</span><br><span class="line">        #auth_ldap_servers ubox;</span><br><span class="line">        autoindex on;</span><br><span class="line">        #proxy_max_temp_file_size 0;</span><br><span class="line">        fastcgi_buffer_size 4k;</span><br><span class="line">        fastcgi_buffers 2048 512k;</span><br><span class="line"></span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;ktvplus_kibana;</span><br><span class="line">        root html;</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  &#x2F;50x.html;</span><br><span class="line"></span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">        root html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    access_log &#x2F;x&#x2F;logs&#x2F;ktvplus&#x2F;elk_access.log ubox;</span><br><span class="line">    error_log &#x2F;x&#x2F;logs&#x2F;ktvplus&#x2F;elk_error.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 <p>进行测试分词效果,使用kibana的Dev Tools 工具中的Console</p>
 <p>elasticsearch自带分词器效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty=true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;standard&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty&#x3D;true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;standard&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用ik_max_word分词<br>ik_max_word ：会将文本做最细粒度的拆分；尽可能多的拆分出词语</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty=true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty&#x3D;true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用ik_smart分词<br>ik_smart：会做最粗粒度的拆分；已被分出的词语将不会再次被其它词语占有</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty=true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_smart&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty&#x3D;true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_smart&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用pinyin分词</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty=true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;pinyin&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET _analyze?pretty&#x3D;true</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;pinyin&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;我是一名java程序员&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>PS:参考 <a href="https://blog.csdn.net/qq_28988969/article/details/79540620" target="_blank" rel="noopener">https://blog.csdn.net/qq_28988969/article/details/79540620</a></p>
@@ -588,7 +628,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/23/使用jenkins更新reocrd本地缓存文件/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/23/%E4%BD%BF%E7%94%A8jenkins%E6%9B%B4%E6%96%B0reocrd%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -602,7 +642,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/23/使用jenkins更新reocrd本地缓存文件/" class="post-title-link" itemprop="url">使用jenkins更新reocrd本地缓存文件</a>
+            <a href="/2019/10/23/%E4%BD%BF%E7%94%A8jenkins%E6%9B%B4%E6%96%B0reocrd%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">使用jenkins更新reocrd本地缓存文件</a>
         </h1>
 
         <div class="post-meta">
@@ -627,7 +667,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自动运维/" itemprop="url" rel="index">
+                  <a href="/categories/%E8%87%AA%E5%8A%A8%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index">
                     <span itemprop="name">自动运维</span>
                   </a>
                 </span>
@@ -651,26 +691,23 @@
 <ul>
 <li>使用shell模块，使用的远程主机的shell脚本，所以需先把脚本copy过去</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible record -m copy -a &quot;src=/ubox/scripts/record/record-wget.bash dest=/root/ mode=500&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible record -m copy -a &quot;src&#x3D;&#x2F;ubox&#x2F;scripts&#x2F;record&#x2F;record-wget.bash dest&#x3D;&#x2F;root&#x2F; mode&#x3D;500&quot;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>先测试下脚本（在此之前，我已经测试过其他脚本）</li>
 </ul>
 <p>record-1 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -x record-wget.bash yb00083.aac</span><br></pre></td></tr></table></figure>
-
 <p>3woa-119</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible 172.16.57.135 -m shell  -a &quot;/root/record-wget.bash yb00083.aac&quot;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible 172.16.57.135 -m shell  -a &quot;&#x2F;root&#x2F;record-wget.bash yb00083.aac&quot;</span><br></pre></td></tr></table></figure>
 <h5 id="其他部分为jenkins图形化配置"><a href="#其他部分为jenkins图形化配置" class="headerlink" title="其他部分为jenkins图形化配置"></a>其他部分为jenkins图形化配置</h5><p><img src="/2019/10/23/%E4%BD%BF%E7%94%A8jenkins%E6%9B%B4%E6%96%B0reocrd%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6/record/12.png" alt="image"></p>
-<h2 id><a href="#" class="headerlink" title></a><img src="/2019/10/23/%E4%BD%BF%E7%94%A8jenkins%E6%9B%B4%E6%96%B0reocrd%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6/record/3.png" alt="image"></h2><p>PS:<br>简单测试脚本  test.bash</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;date&apos;</span><br><span class="line">echo $&#123;1&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/2019/10/23/%E4%BD%BF%E7%94%A8jenkins%E6%9B%B4%E6%96%B0reocrd%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6/record/3.png" alt="image"></h2><p>PS:<br>简单测试脚本  test.bash</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &#39;date&#39;</span><br><span class="line">echo $&#123;1&#125;</span><br></pre></td></tr></table></figure>
 <p>脚本执行：<br>record-1: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -x test.bash 123</span><br></pre></td></tr></table></figure>
 
 <p>3woa: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible 172.16.57.135 -m shell  -a &quot;/tmp/test.bash aa&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible 172.16.57.135 -m shell  -a &quot;&#x2F;tmp&#x2F;test.bash aa&quot;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -689,7 +726,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/16/ansible关闭警告/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/16/ansible%E5%85%B3%E9%97%AD%E8%AD%A6%E5%91%8A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -703,7 +740,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/16/ansible关闭警告/" class="post-title-link" itemprop="url">ansible关闭警告</a>
+            <a href="/2019/10/16/ansible%E5%85%B3%E9%97%AD%E8%AD%A6%E5%91%8A/" class="post-title-link" itemprop="url">ansible关闭警告</a>
         </h1>
 
         <div class="post-meta">
@@ -728,7 +765,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ansible基础/" itemprop="url" rel="index">
+                  <a href="/categories/ansible%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">ansible基础</span>
                   </a>
                 </span>
@@ -749,20 +786,16 @@
 <ul>
 <li>DEPRECATION警告</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host 172.17.56.20 should </span><br><span class="line">use /usr/bin/python3, but is using /usr/bin/python for backward compatibility </span><br><span class="line">with prior Ansible releases. A future Ansible release will default to using the</span><br><span class="line"> discovered platform python for this host. See https://docs.ansible.com/ansible</span><br><span class="line">/2.8/reference_appendices/interpreter_discovery.html for more information. This</span><br><span class="line"> feature will be removed in version 2.12. Deprecation warnings can be disabled </span><br><span class="line">by setting deprecation_warnings=False in ansible.cfg.</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[DEPRECATION WARNING]: Distribution Ubuntu 16.04 on host 172.17.56.20 should </span><br><span class="line">use &#x2F;usr&#x2F;bin&#x2F;python3, but is using &#x2F;usr&#x2F;bin&#x2F;python for backward compatibility </span><br><span class="line">with prior Ansible releases. A future Ansible release will default to using the</span><br><span class="line"> discovered platform python for this host. See https:&#x2F;&#x2F;docs.ansible.com&#x2F;ansible</span><br><span class="line">&#x2F;2.8&#x2F;reference_appendices&#x2F;interpreter_discovery.html for more information. This</span><br><span class="line"> feature will be removed in version 2.12. Deprecation warnings can be disabled </span><br><span class="line">by setting deprecation_warnings&#x3D;False in ansible.cfg.</span><br></pre></td></tr></table></figure>
 <p>选择在ansible.cfg设置 deprecation_warnings=False </p>
 <ul>
 <li>Invalid characters 警告</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> [WARNING]: Invalid characters were found in group names but not replaced, use</span><br><span class="line">-vvvv to see details</span><br></pre></td></tr></table></figure>
-
 <p>总提示我组名有不符合的字符，网上搜索了下，组名不能包含 字母 数字 下划线以外的符号，且不能以数字开头。修改之，同时修改使用的 jenkins、计划任务，免得以后任务报错。保存。<br>不再报警。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[a.b]</span><br><span class="line">172.17.56.16</span><br></pre></td></tr></table></figure>
-
 <p>修改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[a_b]</span><br><span class="line">172.17.56.16</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -782,7 +815,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/15/deliveryRobot的supervisor配置/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/15/deliveryRobot%E7%9A%84supervisor%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -796,7 +829,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/15/deliveryRobot的supervisor配置/" class="post-title-link" itemprop="url">deliveryRobot的supervisor配置</a>
+            <a href="/2019/10/15/deliveryRobot%E7%9A%84supervisor%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">deliveryRobot的supervisor配置</a>
         </h1>
 
         <div class="post-meta">
@@ -821,7 +854,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/supervisor基础/" itemprop="url" rel="index">
+                  <a href="/categories/supervisor%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">supervisor基础</span>
                   </a>
                 </span>
@@ -843,14 +876,12 @@
 <li>配置supervisor</li>
 </ul>
 <p>vim /etc/supervisord.d/deliveryRobot-listen.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[program:deliveryRobot-listen]</span><br><span class="line">command=php /ubox/apps/deliveryRobot/artisan queue:listen  redis   --delay=3 --sleep=3 --tries=12            ; the program (relative uses PATH, can take args)</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d  ;</span><br><span class="line">numprocs=5</span><br><span class="line">priority=999                ; the relative start priority (default 999)</span><br><span class="line">autostart=true              ; start at supervisord start (default: true)</span><br><span class="line">autorestart=true            ; retstart at unexpected quit (default: true)</span><br><span class="line">startsecs=10                ; number of secs prog must stay running (def. 10)</span><br><span class="line">startretries=3  </span><br><span class="line">user=www  </span><br><span class="line">redirect_stderr=true</span><br><span class="line">stdout_logfile=none</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[program:deliveryRobot-listen]</span><br><span class="line">command&#x3D;php &#x2F;ubox&#x2F;apps&#x2F;deliveryRobot&#x2F;artisan queue:listen  redis   --delay&#x3D;3 --sleep&#x3D;3 --tries&#x3D;12            ; the program (relative uses PATH, can take args)</span><br><span class="line">process_name&#x3D;%(program_name)s_%(process_num)02d  ;</span><br><span class="line">numprocs&#x3D;5</span><br><span class="line">priority&#x3D;999                ; the relative start priority (default 999)</span><br><span class="line">autostart&#x3D;true              ; start at supervisord start (default: true)</span><br><span class="line">autorestart&#x3D;true            ; retstart at unexpected quit (default: true)</span><br><span class="line">startsecs&#x3D;10                ; number of secs prog must stay running (def. 10)</span><br><span class="line">startretries&#x3D;3  </span><br><span class="line">user&#x3D;www  </span><br><span class="line">redirect_stderr&#x3D;true</span><br><span class="line">stdout_logfile&#x3D;none</span><br></pre></td></tr></table></figure>
 <ul>
 <li>去除supervisor日志</li>
 </ul>
 <p>因为我php设置问题，默认会有错误提示，导致supervisor日志很大，需要研究去掉日志。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redirect_stderr=true</span><br><span class="line">stdout_logfile=none</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redirect_stderr&#x3D;true</span><br><span class="line">stdout_logfile&#x3D;none</span><br></pre></td></tr></table></figure>
 <ul>
 <li>重新加载配置文件</li>
 </ul>
@@ -878,7 +909,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/08/svn瘦身/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/08/svn%E7%98%A6%E8%BA%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -892,7 +923,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/08/svn瘦身/" class="post-title-link" itemprop="url">svn瘦身</a>
+            <a href="/2019/10/08/svn%E7%98%A6%E8%BA%AB/" class="post-title-link" itemprop="url">svn瘦身</a>
         </h1>
 
         <div class="post-meta">
@@ -917,7 +948,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Svn基础/" itemprop="url" rel="index">
+                  <a href="/categories/Svn%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Svn基础</span>
                   </a>
                 </span>
@@ -944,39 +975,35 @@
 <li>创建备份库</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin hotcopy  P800_IpvodUpdate 1008</span><br></pre></td></tr></table></figure>
-
 <p>命令完成后，因为空间太少，直接将1008移动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv 1008/ /var/wwwtest/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv 1008&#x2F; &#x2F;var&#x2F;wwwtest&#x2F;</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>导出当前最新版本</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin dump P800_IpvodUpdate -r 42 &gt;42.tmp</span><br></pre></td></tr></table></figure>
-
 <ol start="4">
 <li>删除旧库</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-
 <ol start="5">
 <li>创建新的空版本库</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-
 <ol start="6">
 <li>导入</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin load P800_IpvodUpdate &lt;42.tmp</span><br><span class="line">cp /tmp/svnserve.conf   P800_IpvodUpdate/conf/</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin load P800_IpvodUpdate &lt;42.tmp</span><br><span class="line">cp &#x2F;tmp&#x2F;svnserve.conf   P800_IpvodUpdate&#x2F;conf&#x2F;</span><br></pre></td></tr></table></figure>
 <ol start="7">
 <li>检查是否成功</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co svn://3woa.com/P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co svn:&#x2F;&#x2F;3woa.com&#x2F;P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
 
 <ol start="8">
 <li>删除备份</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  /var/wwwtest/1008</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  &#x2F;var&#x2F;wwwtest&#x2F;1008</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -997,7 +1024,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/27/github学习一/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/27/github%E5%AD%A6%E4%B9%A0%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1011,7 +1038,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/27/github学习一/" class="post-title-link" itemprop="url">github学习一</a>
+            <a href="/2019/09/27/github%E5%AD%A6%E4%B9%A0%E4%B8%80/" class="post-title-link" itemprop="url">github学习一</a>
         </h1>
 
         <div class="post-meta">
@@ -1036,7 +1063,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫基础/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">爬虫基础</span>
                   </a>
                 </span>
@@ -1058,8 +1085,7 @@
 <li><a href="https://github.com/daacheng/PythonBasic" target="_blank" rel="noopener">daacheng/PythonBasic/</a></li>
 </ol>
 <p>http的所有基本请求方法网站： <a href="http://httpbin.org" target="_blank" rel="noopener">http://httpbin.org</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r = requests.get(url, headers=heasers,cookies=cookies, timeout=0.001,proxies=proxies)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r &#x3D; requests.get(url, headers&#x3D;heasers,cookies&#x3D;cookies, timeout&#x3D;0.001,proxies&#x3D;proxies)</span><br></pre></td></tr></table></figure>
 <h4 id="css选择器-soup-seclect"><a href="#css选择器-soup-seclect" class="headerlink" title="css选择器(soup.seclect())"></a>css选择器(soup.seclect())</h4><ol>
 <li>通过标签名soup.select(‘title’)</li>
 <li>通过类名查找 soup.select(‘.sister’)</li>
@@ -1089,7 +1115,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/02/scrapy中xpath使用小计/">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/09/02/scrapy%E4%B8%ADxpath%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1103,7 +1129,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/02/scrapy中xpath使用小计/" class="post-title-link" itemprop="url">scrapy中xpath使用小计</a>
+            <a href="/2019/09/02/scrapy%E4%B8%ADxpath%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%A1/" class="post-title-link" itemprop="url">scrapy中xpath使用小计</a>
         </h1>
 
         <div class="post-meta">
@@ -1128,7 +1154,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                  <a href="/categories/Python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
                     <span itemprop="name">Python基础</span>
                   </a>
                 </span>
@@ -1146,20 +1172,21 @@
 
       
           <p>scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title = response.xpath(&quot;/html/head/title/text()&quot;).extract()</span><br><span class="line">    note = response.xpath(&quot;//div[@class=&apos;note&apos;]/text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title &#x3D; response.xpath(&quot;&#x2F;html&#x2F;head&#x2F;title&#x2F;text()&quot;).extract()</span><br><span class="line">    note &#x3D; response.xpath(&quot;&#x2F;&#x2F;div[@class&#x3D;&#39;note&#39;]&#x2F;text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
 <ol>
 <li>xpath是什么</li>
 </ol>
 <p>Xpath是一门在XML文档中查找信息的语言，可以对XML文档中的元素和属性使用路径表达式进行导航，Xpath包含一个标准函数库。</p>
 <ol start="2">
-<li><p>xpath常用标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/ ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　// ---------- 寻找所有的标签</span><br><span class="line">　　[@属性=值] ------ 定位标签</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用举例</p>
-</li>
+<li>xpath常用标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F; ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　&#x2F;&#x2F; ---------- 寻找所有的标签</span><br><span class="line">　　[@属性&#x3D;值] ------ 定位标签</span><br></pre></td></tr></table></figure></li>
+<li>使用举例</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/html -----代表提取html标签内的所有内容</span><br><span class="line">　　/html/head/title -----代表提取title下面的所有信息</span><br><span class="line">　　//li ------ 代表提取所有的li标签</span><br><span class="line">　　//li[@class=&apos;hidden-xs&apos;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　//li[@class=&apos;hidden-xs&apos;]/a/@heef ---------- 提取到class = hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F;html -----代表提取html标签内的所有内容</span><br><span class="line">　　&#x2F;html&#x2F;head&#x2F;title -----代表提取title下面的所有信息</span><br><span class="line">　　&#x2F;&#x2F;li ------ 代表提取所有的li标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;]&#x2F;a&#x2F;@heef ---------- 提取到class &#x3D; hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
 
       
@@ -1286,7 +1313,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">潘昭华</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
@@ -1309,9 +1336,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
