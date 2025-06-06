@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 7.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -229,39 +229,39 @@
 <ol>
 <li>找到最新版本号<br>P800_IpvodUpdate 最大，所以瘦身从它开始；</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>创建备份库</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin hotcopy  P800_IpvodUpdate 1008</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin hotcopy  P800_IpvodUpdate 1008</span><br></pre></td></tr></table></figure>
 <p>命令完成后，因为空间太少，直接将1008移动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv 1008&#x2F; &#x2F;var&#x2F;wwwtest&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv 1008/ /var/wwwtest/</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>导出当前最新版本</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin dump P800_IpvodUpdate -r 42 &gt;42.tmp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin dump P800_IpvodUpdate -r 42 &gt;42.tmp</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>删除旧库</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>创建新的空版本库</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
 <ol start="6">
 <li>导入</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin load P800_IpvodUpdate &lt;42.tmp</span><br><span class="line">cp &#x2F;tmp&#x2F;svnserve.conf   P800_IpvodUpdate&#x2F;conf&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin load P800_IpvodUpdate &lt;42.tmp</span><br><span class="line">cp /tmp/svnserve.conf   P800_IpvodUpdate/conf/</span><br></pre></td></tr></table></figure>
 <ol start="7">
 <li>检查是否成功</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co svn:&#x2F;&#x2F;3woa.com&#x2F;P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co svn://3woa.com/P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
 
 <ol start="8">
 <li>删除备份</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  &#x2F;var&#x2F;wwwtest&#x2F;1008</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  /var/wwwtest/1008</span><br></pre></td></tr></table></figure>
 
 
 
@@ -342,16 +342,16 @@
       
           <p>学习的几个github库</p>
 <ol>
-<li><a href="https://github.com/daacheng/PythonBasic" target="_blank" rel="noopener">daacheng/PythonBasic/</a></li>
+<li><a href="https://github.com/daacheng/PythonBasic">daacheng/PythonBasic/</a></li>
 </ol>
-<p>http的所有基本请求方法网站： <a href="http://httpbin.org" target="_blank" rel="noopener">http://httpbin.org</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r &#x3D; requests.get(url, headers&#x3D;heasers,cookies&#x3D;cookies, timeout&#x3D;0.001,proxies&#x3D;proxies)</span><br></pre></td></tr></table></figure>
+<p>http的所有基本请求方法网站： <a href="http://httpbin.org">http://httpbin.org</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r = requests.get(url, headers=heasers,cookies=cookies, timeout=0.001,proxies=proxies)</span><br></pre></td></tr></table></figure>
 <h4 id="css选择器-soup-seclect"><a href="#css选择器-soup-seclect" class="headerlink" title="css选择器(soup.seclect())"></a>css选择器(soup.seclect())</h4><ol>
 <li>通过标签名soup.select(‘title’)</li>
 <li>通过类名查找 soup.select(‘.sister’)</li>
 <li>通过id名查找soup.select(‘#link1’)</li>
 <li>组合查找 soup.select(‘p #link1’)</li>
-<li>属性查找 soup.select(‘a[href=”<a href="http://examle.com/elsie&quot;]&#39;" target="_blank" rel="noopener">http://examle.com/elsie&quot;]&#39;</a>)<h4 id="xpath解析"><a href="#xpath解析" class="headerlink" title="xpath解析"></a>xpath解析</h4>F12  右键copy xpath</li>
+<li>属性查找 soup.select(‘a[href=”<a href="http://examle.com/elsie&quot;]&#39;">http://examle.com/elsie&quot;]&#39;</a>)<h4 id="xpath解析"><a href="#xpath解析" class="headerlink" title="xpath解析"></a>xpath解析</h4>F12  右键copy xpath</li>
 </ol>
 <hr>
 <p>selenium模拟鼠标操作</p>
@@ -432,16 +432,16 @@
 
       
           <p>scrapy下写的一个爬虫方法，是用来爬取html页面的title标签内容和class=’note’的div标签下的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title &#x3D; response.xpath(&quot;&#x2F;html&#x2F;head&#x2F;title&#x2F;text()&quot;).extract()</span><br><span class="line">    note &#x3D; response.xpath(&quot;&#x2F;&#x2F;div[@class&#x3D;&#39;note&#39;]&#x2F;text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def next(self,response):</span><br><span class="line">    title = response.xpath(&quot;/html/head/title/text()&quot;).extract()</span><br><span class="line">    note = response.xpath(&quot;//div[@class=&#x27;note&#x27;]/text()&quot;).extract()</span><br><span class="line">    print(title)</span><br><span class="line">    print(note)</span><br></pre></td></tr></table></figure>
 <ol>
 <li>xpath是什么</li>
 </ol>
 <p>Xpath是一门在XML文档中查找信息的语言，可以对XML文档中的元素和属性使用路径表达式进行导航，Xpath包含一个标准函数库。</p>
 <ol start="2">
-<li>xpath常用标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F; ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　&#x2F;&#x2F; ---------- 寻找所有的标签</span><br><span class="line">　　[@属性&#x3D;值] ------ 定位标签</span><br></pre></td></tr></table></figure></li>
+<li>xpath常用标签<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/ ------提取某个标签下的所有内容</span><br><span class="line">　　text() ------- 提取标签所包含的文本内容</span><br><span class="line">　　@ ---------- 提取标签属性的信息</span><br><span class="line">　　// ---------- 寻找所有的标签</span><br><span class="line">　　[@属性=值] ------ 定位标签</span><br></pre></td></tr></table></figure></li>
 <li>使用举例</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　&#x2F;html -----代表提取html标签内的所有内容</span><br><span class="line">　　&#x2F;html&#x2F;head&#x2F;title -----代表提取title下面的所有信息</span><br><span class="line">　　&#x2F;&#x2F;li ------ 代表提取所有的li标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　&#x2F;&#x2F;li[@class&#x3D;&#39;hidden-xs&#39;]&#x2F;a&#x2F;@heef ---------- 提取到class &#x3D; hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　/html -----代表提取html标签内的所有内容</span><br><span class="line">　　/html/head/title -----代表提取title下面的所有信息</span><br><span class="line">　　//li ------ 代表提取所有的li标签</span><br><span class="line">　　//li[@class=&#x27;hidden-xs&#x27;] -------- 直接定位到满足条件的标签</span><br><span class="line">　　//li[@class=&#x27;hidden-xs&#x27;]/a/@heef ---------- 提取到class = hidden-cs的li标签下面的a标签的href的值</span><br></pre></td></tr></table></figure>
 
 
 
@@ -512,19 +512,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 <hr>
 <p>因为hello world 不添加时间，会自动跟随最近的一篇文章，所以把它时间调整为最旧的文章的前一篇。</p>
 
@@ -652,7 +652,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">潘昭华</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0

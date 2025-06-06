@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 7.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -46,12 +46,12 @@
   };
 </script>
 
-  <meta name="description" content="pyecharts和pandas入门一 1234from pyecharts import options as optsfrom pyecharts.charts import Barimport pandas as pd#导入模块   123df &#x3D; pd.read_excel(&#39;v20191216全量机器mac码  .xlsx&#39;)df &#x3D; df.head(10)#导入数据   1df.key">
+  <meta name="description" content="pyecharts和pandas入门一 1234from pyecharts import options as optsfrom pyecharts.charts import Barimport pandas as pd#导入模块   123df &#x3D; pd.read_excel(&#x27;v20191216全量机器mac码  .xlsx&#x27;)df &#x3D; df.head(10)#导入数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pyecharts和pandas入门一">
 <meta property="og:url" content="https://panzhaohua.github.io/2019/12/31/pyecharts%E5%92%8Cpandas%E5%85%A5%E9%97%A8%E4%B8%80/index.html">
 <meta property="og:site_name" content="潘昭华的技术博客">
-<meta property="og:description" content="pyecharts和pandas入门一 1234from pyecharts import options as optsfrom pyecharts.charts import Barimport pandas as pd#导入模块   123df &#x3D; pd.read_excel(&#39;v20191216全量机器mac码  .xlsx&#39;)df &#x3D; df.head(10)#导入数据   1df.key">
+<meta property="og:description" content="pyecharts和pandas入门一 1234from pyecharts import options as optsfrom pyecharts.charts import Barimport pandas as pd#导入模块   123df &#x3D; pd.read_excel(&#x27;v20191216全量机器mac码  .xlsx&#x27;)df &#x3D; df.head(10)#导入数据">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2025-05-13T08:37:33.555Z">
@@ -230,7 +230,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Bar</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#导入模块</span></span><br></pre></td></tr></table></figure>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'v20191216全量机器mac码  .xlsx'</span>)</span><br><span class="line">df = df.head(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#导入数据</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">&#x27;v20191216全量机器mac码  .xlsx&#x27;</span>)</span><br><span class="line">df = df.head(<span class="number">10</span>)</span><br><span class="line"><span class="comment">#导入数据</span></span><br></pre></td></tr></table></figure>
 
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.keys() <span class="comment">#查看keys</span></span><br></pre></td></tr></table></figure>
@@ -243,12 +243,12 @@
        &apos;4G卡号获取类型&apos;, &apos;获取时间&apos;, &apos;营业开店时间&apos;, &apos;营业结束时间&apos;, &apos;门店联系者电话&apos;, &apos;空调状态&apos;, &apos;当前室温&apos;,
        &apos;机器型号&apos;, &apos;铭牌号&apos;, &apos;接口号&apos;, &apos;运营方&apos;, &apos;点位合作方式&apos;, &apos;最新签到时间&apos;, &apos;高点播量歌曲缺歌数&apos;, &apos;运营状态&apos;,
        &apos;制冷设备&apos;],
-      dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'断网次数'</span>].tolist()  <span class="comment">#查看可以打印出来的值</span></span><br></pre></td></tr></table></figure>
+      dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;断网次数&#x27;</span>].tolist()  <span class="comment">#查看可以打印出来的值</span></span><br></pre></td></tr></table></figure>
 
 
 
 
-<pre><code>[0, 0, 0, 0, 2, 2, 4, 0, 4, 6]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bar = (Bar()</span><br><span class="line">      .add_xaxis(df[<span class="string">'机器码'</span>].tolist())</span><br><span class="line">      .add_yaxis(<span class="string">'断网次数'</span>,df[<span class="string">'断网次数'</span>].tolist())</span><br><span class="line">     <span class="comment"># .add_yaxis('网络运营商',df['网络运营商'].tolist())</span></span><br><span class="line">     .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">"运营商"</span>, subtitle=<span class="string">"断网次数"</span>))</span><br><span class="line">      )</span><br><span class="line">bar.render_notebook()</span><br><span class="line"><span class="comment">#按照帮助文档提示，生成图像 http://pyecharts.org/#/zh-cn/quickstart</span></span><br></pre></td></tr></table></figure>
+<pre><code>[0, 0, 0, 0, 2, 2, 4, 0, 4, 6]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bar = (Bar()</span><br><span class="line">      .add_xaxis(df[<span class="string">&#x27;机器码&#x27;</span>].tolist())</span><br><span class="line">      .add_yaxis(<span class="string">&#x27;断网次数&#x27;</span>,df[<span class="string">&#x27;断网次数&#x27;</span>].tolist())</span><br><span class="line">     <span class="comment"># .add_yaxis(&#x27;网络运营商&#x27;,df[&#x27;网络运营商&#x27;].tolist())</span></span><br><span class="line">     .set_global_opts(title_opts=opts.TitleOpts(title=<span class="string">&quot;运营商&quot;</span>, subtitle=<span class="string">&quot;断网次数&quot;</span>))</span><br><span class="line">      )</span><br><span class="line">bar.render_notebook()</span><br><span class="line"><span class="comment">#按照帮助文档提示，生成图像 http://pyecharts.org/#/zh-cn/quickstart</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -383,7 +383,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">潘昭华</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
