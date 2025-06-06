@@ -169,6 +169,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/07/14/minikube-k8s-%E5%AE%89%E8%A3%85%E6%8C%87%E5%BC%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="潘昭华">
+      <meta itemprop="description" content="IT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="潘昭华的技术博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/14/minikube-k8s-%E5%AE%89%E8%A3%85%E6%8C%87%E5%BC%95/" class="post-title-link" itemprop="url">minikube k8s 安装指引</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-14 11:43:58" itemprop="dateCreated datePublished" datetime="2020-07-14T11:43:58+08:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-13 16:37:33" itemprop="dateModified" datetime="2025-05-13T16:37:33+08:00">2025-05-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/K8S/" itemprop="url" rel="index">
+                    <span itemprop="name">K8S</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="minikube-k8s-安装"><a href="#minikube-k8s-安装" class="headerlink" title="minikube k8s 安装"></a>minikube k8s 安装</h4><ol>
+<li>安装docker <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker</span><br></pre></td></tr></table></figure></li>
+<li>安装kubectl minikube helm</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;kubernetes.io&#x2F;docs&#x2F;tasks&#x2F;tools&#x2F;install-minikube&#x2F;?ref&#x3D;hackernoon.com</span><br><span class="line">https:&#x2F;&#x2F;kubernetes.io&#x2F;docs&#x2F;tasks&#x2F;tools&#x2F;install-kubectl&#x2F;?ref&#x3D;hackernoon.com</span><br><span class="line">https:&#x2F;&#x2F;helm.sh&#x2F;docs&#x2F;intro&#x2F;install&#x2F;?ref&#x3D;hackernoon.com</span><br></pre></td></tr></table></figure>
+<p>下载到本地保存好，然后拷贝到虚拟机去； </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv  * &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>创建集群</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube start --driver&#x3D;none</span><br></pre></td></tr></table></figure>
+<p>提示 X Sorry, Kubernetes 1.18.3 requires conntrack to be installed in root’s path ，安装conntrack </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install conntrack -y</span><br></pre></td></tr></table></figure>
+<p>再跑，提示ubox 不能被解析，加入 /etc/hosts 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;hosts</span><br><span class="line">127.0.0.1  ubox</span><br></pre></td></tr></table></figure>
+<p>关掉防火墙，设置服务自动启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable kubelet.service</span><br><span class="line">systemctl start  kubelet.service</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl disabel firewalld</span><br></pre></td></tr></table></figure>
+<p>再遇到报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;proc&#x2F;sys&#x2F;net&#x2F;bridge&#x2F;bridge-nf-call-iptables contents are not set to 1</span><br></pre></td></tr></table></figure>
+<p>解决方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt;&#x2F;proc&#x2F;sys&#x2F;net&#x2F;bridge&#x2F;bridge-nf-call-iptables</span><br></pre></td></tr></table></figure>
+<p>经典网络问题因公司有代理，所以未遇到，但也标记解决办法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube start --vm-driver&#x3D;none --image-repository&#x3D;registry.cn-hangzhou.aliyuncs.com&#x2F;google_containers</span><br></pre></td></tr></table></figure>
+<p>再遇到报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Failed to list *v1.Node: Get https:&#x2F;&#x2F;control-plane.minikube.internal:8443&#x2F;api&#x2F;v1&#x2F;nodes?limit&#x3D;500&amp;resourceVersion&#x3D;0: dial tcp 10.0.2.15:8443: connect: connection refused</span><br><span class="line">Failed to list *v1.StorageClass:</span><br></pre></td></tr></table></figure>
+<p>解决办法： 关闭selinux </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">临时： setenforce 0</span><br><span class="line">永久：</span><br><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;selinux</span><br><span class="line">SELINUX&#x3D;disabled</span><br></pre></td></tr></table></figure>
+<p>再运行minikube status</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">minikube</span><br><span class="line">type: Control Plane</span><br><span class="line">host: Running</span><br><span class="line">kubelet: Running</span><br><span class="line">apiserver: Running</span><br><span class="line">kubeconfig: Configured</span><br></pre></td></tr></table></figure>
+<p>收工！！！</p>
+<hr>
+<p>PS:<br>系统基于centos7</p>
+<p>安装vim  lrzsz和bash-completion </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y  lrzsz vim bash-completion</span><br></pre></td></tr></table></figure>
+<p><a href="https://kubernetes.io/zh/docs/tasks/tools/install-minikube/" target="_blank" rel="noopener">https://kubernetes.io/zh/docs/tasks/tools/install-minikube/</a></p>
+<p>卸载minikube</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube delete</span><br></pre></td></tr></table></figure>
+<p>运行以下命令查看 Redis 主节点 Pod 中的日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl logs -f POD-NAME</span><br></pre></td></tr></table></figure>
+<p>查看信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe pods  POD-NAME</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2020/03/16/centos6%E5%AE%89%E8%A3%85grpc%E5%8F%8Agrpc-php-plugin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1283,121 +1401,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://panzhaohua.github.io/2019/10/08/svn%E7%98%A6%E8%BA%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="潘昭华">
-      <meta itemprop="description" content="IT">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="潘昭华的技术博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/08/svn%E7%98%A6%E8%BA%AB/" class="post-title-link" itemprop="url">svn瘦身</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-08 10:54:26" itemprop="dateCreated datePublished" datetime="2019-10-08T10:54:26+08:00">2019-10-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-05-13 16:37:33" itemprop="dateModified" datetime="2025-05-13T16:37:33+08:00">2025-05-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Svn%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Svn基础</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>svn瘦身,因服务器空间不足，影响应用正常运行，所以尝试进行瘦身</p>
-<ol>
-<li>找到最新版本号<br>P800_IpvodUpdate 最大，所以瘦身从它开始；</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnlook youngest P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>创建备份库</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin hotcopy  P800_IpvodUpdate 1008</span><br></pre></td></tr></table></figure>
-<p>命令完成后，因为空间太少，直接将1008移动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv 1008&#x2F; &#x2F;var&#x2F;wwwtest&#x2F;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>导出当前最新版本</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin dump P800_IpvodUpdate -r 42 &gt;42.tmp</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>删除旧库</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>创建新的空版本库</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>导入</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnadmin load P800_IpvodUpdate &lt;42.tmp</span><br><span class="line">cp &#x2F;tmp&#x2F;svnserve.conf   P800_IpvodUpdate&#x2F;conf&#x2F;</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>检查是否成功</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co svn:&#x2F;&#x2F;3woa.com&#x2F;P800_IpvodUpdate</span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>删除备份</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  &#x2F;var&#x2F;wwwtest&#x2F;1008</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1468,7 +1471,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1477,7 +1480,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
