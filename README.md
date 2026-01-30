@@ -27,16 +27,18 @@ git push
 检查项目根目录是否有 .npmrc 文件，删除或修改它
 检查 package-lock.json 是否包含旧镜像地址，如有需要删除后重新生成
 删除锁文件（谨慎操作）
-
 [del package-lock.json
 npm cache clean --force
 npm install -dd](https://note.youdao.com/)
+
 安装以后，可以使用以下两种方式执行 Hexo：
 [npx hexo <command>](https://note.youdao.com/)
+
 Linux 用户可以将 Hexo 所在的目录下的 node_modules 添加到环境变量之中即可直接使用 hexo <command>：
 [echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile](https://note.youdao.com/)
 
 如果hexo不想加npx,则全局安装命令行，临时使用指定源安装
+
 单次使用指定源，不修改全局配置
 [npm install -g hexo-cli --registry=https://registry.npmmirror.com](https://note.youdao.com/)
 
